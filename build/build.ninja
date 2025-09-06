@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: VK_project
+# Project: VulkanHello
 # Configurations: Release
 # =============================================================================
 
@@ -47,13 +47,23 @@ cmake_ninja_workdir = C$:/Users/gusta/Desktop/VK_project/build/
 #############################################
 # Order-only phony target for VulkanEngine
 
-build cmake_object_order_depends_target_VulkanEngine: phony || .
+build cmake_object_order_depends_target_VulkanEngine: phony || cmake_object_order_depends_target_glfw
+
+build CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj: CXX_COMPILER__VulkanEngine_unscanned_Release C$:/Users/gusta/Desktop/VK_project/vk_lib/app.cpp || cmake_object_order_depends_target_VulkanEngine
+  CONFIG = Release
+  DEFINES = -DGLFW_INCLUDE_NONE
+  DEP_FILE = CMakeFiles\VulkanEngine.dir\vk_lib\app.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++17
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
+  OBJECT_DIR = CMakeFiles\VulkanEngine.dir
+  OBJECT_FILE_DIR = CMakeFiles\VulkanEngine.dir\vk_lib
 
 build CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj: CXX_COMPILER__VulkanEngine_unscanned_Release C$:/Users/gusta/Desktop/VK_project/vk_lib/ve_window.cpp || cmake_object_order_depends_target_VulkanEngine
   CONFIG = Release
+  DEFINES = -DGLFW_INCLUDE_NONE
   DEP_FILE = CMakeFiles\VulkanEngine.dir\vk_lib\ve_window.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu++17
-  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/code_index/engine
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
   OBJECT_DIR = CMakeFiles\VulkanEngine.dir
   OBJECT_FILE_DIR = CMakeFiles\VulkanEngine.dir\vk_lib
 
@@ -65,7 +75,7 @@ build CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj: CXX_COMPILER__Vulkan
 #############################################
 # Link the static library libVulkanEngine.a
 
-build libVulkanEngine.a: CXX_STATIC_LIBRARY_LINKER__VulkanEngine_Release CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj
+build libVulkanEngine.a: CXX_STATIC_LIBRARY_LINKER__VulkanEngine_Release CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj || _deps/glfw-build/src/libglfw3.a
   CONFIG = Release
   LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
   OBJECT_DIR = CMakeFiles\VulkanEngine.dir
@@ -81,14 +91,14 @@ build libVulkanEngine.a: CXX_STATIC_LIBRARY_LINKER__VulkanEngine_Release CMakeFi
 #############################################
 # Order-only phony target for VK_project
 
-build cmake_object_order_depends_target_VK_project: phony || .
+build cmake_object_order_depends_target_VK_project: phony || cmake_object_order_depends_target_VulkanEngine cmake_object_order_depends_target_glfw
 
 build CMakeFiles/VK_project.dir/code_index/main.cpp.obj: CXX_COMPILER__VK_project_unscanned_Release C$:/Users/gusta/Desktop/VK_project/code_index/main.cpp || cmake_object_order_depends_target_VK_project
   CONFIG = Release
   DEFINES = -DGLFW_INCLUDE_NONE
   DEP_FILE = CMakeFiles\VK_project.dir\code_index\main.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu++17
-  INCLUDES = -isystem C:/VulkanSDK/1.4.321.1/include
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/vk_lib -isystem C:/VulkanSDK/1.4.321.1/include
   OBJECT_DIR = CMakeFiles\VK_project.dir
   OBJECT_FILE_DIR = CMakeFiles\VK_project.dir\code_index
 
@@ -100,10 +110,10 @@ build CMakeFiles/VK_project.dir/code_index/main.cpp.obj: CXX_COMPILER__VK_projec
 #############################################
 # Link the executable VK_project.exe
 
-build VK_project.exe: CXX_EXECUTABLE_LINKER__VK_project_Release CMakeFiles/VK_project.dir/code_index/main.cpp.obj | C$:/VulkanSDK/1.4.321.1/Lib/vulkan-1.lib
+build VK_project.exe: CXX_EXECUTABLE_LINKER__VK_project_Release CMakeFiles/VK_project.dir/code_index/main.cpp.obj | libVulkanEngine.a C$:/VulkanSDK/1.4.321.1/Lib/vulkan-1.lib _deps/glfw-build/src/libglfw3.a || _deps/glfw-build/src/libglfw3.a libVulkanEngine.a
   CONFIG = Release
   FLAGS = -O3 -DNDEBUG
-  LINK_LIBRARIES = C:/VulkanSDK/1.4.321.1/Lib/vulkan-1.lib  -lglfw  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libVulkanEngine.a  C:/VulkanSDK/1.4.321.1/Lib/vulkan-1.lib  _deps/glfw-build/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\VK_project.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -135,12 +145,446 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build && "C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/gusta/Desktop/VK_project/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for uninstall
+
+build _deps/glfw-build/uninstall: phony _deps/glfw-build/CMakeFiles/uninstall
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/glfw-build/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\gusta\Desktop\VK_project -BC:\Users\gusta\Desktop\VK_project\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/edit_cache: phony _deps/glfw-build/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/glfw-build/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\gusta\Desktop\VK_project -BC:\Users\gusta\Desktop\VK_project\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/rebuild_cache: phony _deps/glfw-build/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/glfw-build/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/glfw-build/CMakeFiles/install.util: CUSTOM_COMMAND _deps/glfw-build/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/install: phony _deps/glfw-build/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/glfw-build/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/glfw-build/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/install/local: phony _deps/glfw-build/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/glfw-build/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/glfw-build/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/install/strip: phony _deps/glfw-build/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for _deps\glfw-build\CMakeFiles\uninstall
+
+build _deps/glfw-build/CMakeFiles/uninstall | ${cmake_ninja_workdir}_deps/glfw-build/CMakeFiles/uninstall: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/cmake_uninstall.cmake"
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Order-only phony target for glfw
+
+build cmake_object_order_depends_target_glfw: phony || .
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/context.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\context.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/init.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/init.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\init.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/input.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/input.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\input.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/monitor.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/monitor.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\monitor.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/platform.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/platform.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\platform.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/vulkan.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/vulkan.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\vulkan.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/window.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/window.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\window.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/egl_context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/egl_context.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\egl_context.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/osmesa_context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/osmesa_context.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\osmesa_context.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/null_init.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/null_init.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\null_init.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/null_monitor.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/null_monitor.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\null_monitor.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/null_window.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/null_window.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\null_window.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/null_joystick.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/null_joystick.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\null_joystick.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_module.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/win32_module.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_module.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_time.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/win32_time.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_time.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/win32_thread.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_thread.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_init.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/win32_init.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_init.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/win32_joystick.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_joystick.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/win32_monitor.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_monitor.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_window.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/win32_window.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_window.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src/wgl_context.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\wgl_context.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c99 -Wall
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/src -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Link the static library _deps\glfw-build\src\libglfw3.a
+
+build _deps/glfw-build/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Release _deps/glfw-build/src/CMakeFiles/glfw.dir/context.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/init.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/input.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/monitor.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/platform.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/vulkan.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/window.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/egl_context.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/osmesa_context.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/null_init.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/null_monitor.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/null_window.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/null_joystick.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_module.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_time.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_thread.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_init.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_joystick.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_monitor.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_window.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/wgl_context.c.obj
+  CONFIG = Release
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = _deps\glfw-build\src\libglfw3.a
+  TARGET_PDB = glfw3.a.dbg
+
+
+#############################################
+# Utility command for update_mappings
+
+build _deps/glfw-build/src/update_mappings: phony _deps/glfw-build/src/CMakeFiles/update_mappings
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/glfw-build/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build\src && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\gusta\Desktop\VK_project -BC:\Users\gusta\Desktop\VK_project\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/src/edit_cache: phony _deps/glfw-build/src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/glfw-build/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build\src && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\gusta\Desktop\VK_project -BC:\Users\gusta\Desktop\VK_project\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/src/rebuild_cache: phony _deps/glfw-build/src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/glfw-build/src/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/glfw-build/src/CMakeFiles/install.util: CUSTOM_COMMAND _deps/glfw-build/src/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build\src && "C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/src/install: phony _deps/glfw-build/src/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/glfw-build/src/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/glfw-build/src/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build\src && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/src/install/local: phony _deps/glfw-build/src/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/glfw-build/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/glfw-build/src/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-build\src && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/src/install/strip: phony _deps/glfw-build/src/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for _deps\glfw-build\src\CMakeFiles\update_mappings
+
+build _deps/glfw-build/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}_deps/glfw-build/src/CMakeFiles/update_mappings: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\gusta\Desktop\VK_project\build\_deps\glfw-src\src && "C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/CMake/GenerateMappings.cmake mappings.h.in mappings.h"
+  DESC = Updating gamepad mappings from upstream repository
+
 # =============================================================================
 # Target aliases.
 
 build VK_project: phony VK_project.exe
 
 build VulkanEngine: phony libVulkanEngine.a
+
+build glfw: phony _deps/glfw-build/src/libglfw3.a
+
+build libglfw3.a: phony _deps/glfw-build/src/libglfw3.a
+
+build uninstall: phony _deps/glfw-build/uninstall
+
+build update_mappings: phony _deps/glfw-build/src/update_mappings
 
 # =============================================================================
 # Folder targets.
@@ -150,7 +594,21 @@ build VulkanEngine: phony libVulkanEngine.a
 #############################################
 # Folder: C:/Users/gusta/Desktop/VK_project/build
 
-build all: phony libVulkanEngine.a VK_project.exe
+build all: phony libVulkanEngine.a VK_project.exe _deps/glfw-build/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build
+
+build _deps/glfw-build/all: phony _deps/glfw-build/src/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src
+
+build _deps/glfw-build/src/all: phony _deps/glfw-build/src/libglfw3.a
 
 # =============================================================================
 # Built-in targets
@@ -173,14 +631,14 @@ build C$:/Users/gusta/Desktop/VK_project/build/CMakeFiles/cmake.verify_globs: VE
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja C$:/Users/gusta/Desktop/VK_project/build/cmake_install.cmake: RERUN_CMAKE C$:/Users/gusta/Desktop/VK_project/build/CMakeFiles/cmake.verify_globs | C$:/Users/gusta/Desktop/VK_project/build/CMakeFiles/VerifyGlobs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindVulkan.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Users/gusta/Desktop/VK_project/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.1/CMakeCXXCompiler.cmake CMakeFiles/4.1.1/CMakeRCCompiler.cmake CMakeFiles/4.1.1/CMakeSystem.cmake
+build build.ninja C$:/Users/gusta/Desktop/VK_project/build/cmake_install.cmake C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/cmake_install.cmake C$:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src/cmake_install.cmake: RERUN_CMAKE C$:/Users/gusta/Desktop/VK_project/build/CMakeFiles/cmake.verify_globs | C$:/Users/gusta/Desktop/VK_project/build/CMakeFiles/VerifyGlobs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindGit.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindVulkan.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/gusta/Desktop/VK_project/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.1/CMakeCCompiler.cmake CMakeFiles/4.1.1/CMakeCXXCompiler.cmake CMakeFiles/4.1.1/CMakeRCCompiler.cmake CMakeFiles/4.1.1/CMakeSystem.cmake _deps/glfw-src/CMakeLists.txt _deps/glfw-src/CMake/cmake_uninstall.cmake.in _deps/glfw-src/CMake/glfw3.pc.in _deps/glfw-src/CMake/glfw3Config.cmake.in _deps/glfw-src/src/CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/gusta/Desktop/VK_project/build/CMakeFiles/VerifyGlobs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindVulkan.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Users/gusta/Desktop/VK_project/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.1/CMakeCXXCompiler.cmake CMakeFiles/4.1.1/CMakeRCCompiler.cmake CMakeFiles/4.1.1/CMakeSystem.cmake: phony
+build C$:/Users/gusta/Desktop/VK_project/build/CMakeFiles/VerifyGlobs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindGit.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindVulkan.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/gusta/Desktop/VK_project/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.1/CMakeCCompiler.cmake CMakeFiles/4.1.1/CMakeCXXCompiler.cmake CMakeFiles/4.1.1/CMakeRCCompiler.cmake CMakeFiles/4.1.1/CMakeSystem.cmake _deps/glfw-src/CMakeLists.txt _deps/glfw-src/CMake/cmake_uninstall.cmake.in _deps/glfw-src/CMake/glfw3.pc.in _deps/glfw-src/CMake/glfw3Config.cmake.in _deps/glfw-src/src/CMakeLists.txt: phony
 
 
 #############################################
