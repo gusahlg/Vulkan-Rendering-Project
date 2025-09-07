@@ -2,7 +2,7 @@
 namespace ve{
 
 void FirstApp::run(){
-    while(lveWindow.shouldClose()){
+    while(!lveWindow.shouldClose()){
         glfwPollEvents();
     }
 }

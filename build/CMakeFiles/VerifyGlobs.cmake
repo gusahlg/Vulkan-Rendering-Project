@@ -5,6 +5,7 @@
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "C:/Users/gusta/Desktop/VK_project/vk_lib/*.cpp")
 set(OLD_GLOB
   "C:/Users/gusta/Desktop/VK_project/vk_lib/app.cpp"
+  "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_pipeline.cpp"
   "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_window.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

@@ -58,6 +58,15 @@ build CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj: CXX_COMPILER__VulkanEngine
   OBJECT_DIR = CMakeFiles\VulkanEngine.dir
   OBJECT_FILE_DIR = CMakeFiles\VulkanEngine.dir\vk_lib
 
+build CMakeFiles/VulkanEngine.dir/vk_lib/ve_pipeline.cpp.obj: CXX_COMPILER__VulkanEngine_unscanned_Release C$:/Users/gusta/Desktop/VK_project/vk_lib/ve_pipeline.cpp || cmake_object_order_depends_target_VulkanEngine
+  CONFIG = Release
+  DEFINES = -DGLFW_INCLUDE_NONE
+  DEP_FILE = CMakeFiles\VulkanEngine.dir\vk_lib\ve_pipeline.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++17
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
+  OBJECT_DIR = CMakeFiles\VulkanEngine.dir
+  OBJECT_FILE_DIR = CMakeFiles\VulkanEngine.dir\vk_lib
+
 build CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj: CXX_COMPILER__VulkanEngine_unscanned_Release C$:/Users/gusta/Desktop/VK_project/vk_lib/ve_window.cpp || cmake_object_order_depends_target_VulkanEngine
   CONFIG = Release
   DEFINES = -DGLFW_INCLUDE_NONE
@@ -75,7 +84,7 @@ build CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj: CXX_COMPILER__Vulkan
 #############################################
 # Link the static library libVulkanEngine.a
 
-build libVulkanEngine.a: CXX_STATIC_LIBRARY_LINKER__VulkanEngine_Release CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj || _deps/glfw-build/src/libglfw3.a
+build libVulkanEngine.a: CXX_STATIC_LIBRARY_LINKER__VulkanEngine_Release CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/ve_pipeline.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj || _deps/glfw-build/src/libglfw3.a
   CONFIG = Release
   LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
   OBJECT_DIR = CMakeFiles\VulkanEngine.dir
