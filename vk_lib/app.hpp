@@ -3,6 +3,7 @@
 #include "ve_pipeline.hpp"
 #include "lve_device.hpp"
 #include "lve_swap_chain.hpp"
+#include "ve_model.hpp"
 #include <memory>
 #include <vector>
 namespace ve{
@@ -16,15 +17,17 @@ namespace ve{
         FirstApp &operator=(const LveWindow&) = delete;
         void run();
     private:
+        void loadModels();
         void createPipelineLayout();
         void createPipeline();
         void createCommandBuffers();
         void drawFrame();
-        LveWindow lveWindow{WIDTH, HEIGHT, "Hello Vulkan!"};
+        LveWindow lveWindow{WIDTH, HEIGHT, "VK Rendering Project"};
         LveDevice lveDevice{lveWindow};
         LveSwapChain lveSwapChain{lveDevice, lveWindow.getExtent()};
         std::unique_ptr<LvePipeline> lvePipeline;
         VkPipelineLayout pipelineLayout;
         std::vector<VkCommandBuffer> commandBuffers;
+        std::unique_ptr<LveModel> lveModel;
     };
 }
