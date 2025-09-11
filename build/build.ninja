@@ -54,7 +54,7 @@ build CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj: CXX_COMPILER__VulkanEngine
   DEFINES = -DGLFW_INCLUDE_NONE
   DEP_FILE = CMakeFiles\VulkanEngine.dir\vk_lib\app.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu++17
-  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
   OBJECT_DIR = CMakeFiles\VulkanEngine.dir
   OBJECT_FILE_DIR = CMakeFiles\VulkanEngine.dir\vk_lib
 
@@ -63,7 +63,7 @@ build CMakeFiles/VulkanEngine.dir/vk_lib/lve_device.cpp.obj: CXX_COMPILER__Vulka
   DEFINES = -DGLFW_INCLUDE_NONE
   DEP_FILE = CMakeFiles\VulkanEngine.dir\vk_lib\lve_device.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu++17
-  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
   OBJECT_DIR = CMakeFiles\VulkanEngine.dir
   OBJECT_FILE_DIR = CMakeFiles\VulkanEngine.dir\vk_lib
 
@@ -72,7 +72,16 @@ build CMakeFiles/VulkanEngine.dir/vk_lib/lve_swap_chain.cpp.obj: CXX_COMPILER__V
   DEFINES = -DGLFW_INCLUDE_NONE
   DEP_FILE = CMakeFiles\VulkanEngine.dir\vk_lib\lve_swap_chain.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu++17
-  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
+  OBJECT_DIR = CMakeFiles\VulkanEngine.dir
+  OBJECT_FILE_DIR = CMakeFiles\VulkanEngine.dir\vk_lib
+
+build CMakeFiles/VulkanEngine.dir/vk_lib/ve_model.cpp.obj: CXX_COMPILER__VulkanEngine_unscanned_Release C$:/Users/gusta/Desktop/VK_project/vk_lib/ve_model.cpp || cmake_object_order_depends_target_VulkanEngine
+  CONFIG = Release
+  DEFINES = -DGLFW_INCLUDE_NONE
+  DEP_FILE = CMakeFiles\VulkanEngine.dir\vk_lib\ve_model.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++17
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
   OBJECT_DIR = CMakeFiles\VulkanEngine.dir
   OBJECT_FILE_DIR = CMakeFiles\VulkanEngine.dir\vk_lib
 
@@ -81,7 +90,7 @@ build CMakeFiles/VulkanEngine.dir/vk_lib/ve_pipeline.cpp.obj: CXX_COMPILER__Vulk
   DEFINES = -DGLFW_INCLUDE_NONE
   DEP_FILE = CMakeFiles\VulkanEngine.dir\vk_lib\ve_pipeline.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu++17
-  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
   OBJECT_DIR = CMakeFiles\VulkanEngine.dir
   OBJECT_FILE_DIR = CMakeFiles\VulkanEngine.dir\vk_lib
 
@@ -90,7 +99,7 @@ build CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj: CXX_COMPILER__Vulkan
   DEFINES = -DGLFW_INCLUDE_NONE
   DEP_FILE = CMakeFiles\VulkanEngine.dir\vk_lib\ve_window.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu++17
-  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include
   OBJECT_DIR = CMakeFiles\VulkanEngine.dir
   OBJECT_FILE_DIR = CMakeFiles\VulkanEngine.dir\vk_lib
 
@@ -102,7 +111,7 @@ build CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj: CXX_COMPILER__Vulkan
 #############################################
 # Link the static library libVulkanEngine.a
 
-build libVulkanEngine.a: CXX_STATIC_LIBRARY_LINKER__VulkanEngine_Release CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/lve_device.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/lve_swap_chain.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/ve_pipeline.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj || _deps/glfw-build/src/libglfw3.a
+build libVulkanEngine.a: CXX_STATIC_LIBRARY_LINKER__VulkanEngine_Release CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/lve_device.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/lve_swap_chain.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/ve_model.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/ve_pipeline.cpp.obj CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.obj || _deps/glfw-build/src/libglfw3.a
   CONFIG = Release
   LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
   OBJECT_DIR = CMakeFiles\VulkanEngine.dir
@@ -125,7 +134,7 @@ build CMakeFiles/VK_project.dir/code_index/main.cpp.obj: CXX_COMPILER__VK_projec
   DEFINES = -DGLFW_INCLUDE_NONE
   DEP_FILE = CMakeFiles\VK_project.dir\code_index\main.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu++17
-  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/vk_lib -isystem C:/VulkanSDK/1.4.321.1/include
+  INCLUDES = -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -isystem C:/VulkanSDK/1.4.321.1/include
   OBJECT_DIR = CMakeFiles\VK_project.dir
   OBJECT_FILE_DIR = CMakeFiles\VK_project.dir\code_index
 

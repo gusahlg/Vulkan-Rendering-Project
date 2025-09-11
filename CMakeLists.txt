@@ -44,6 +44,9 @@ target_link_libraries(VK_project PRIVATE VulkanEngine)
 target_include_directories(VK_project PRIVATE
   $<TARGET_PROPERTY:glfw,INTERFACE_INCLUDE_DIRECTORIES>
 )
-
+target_include_directories(VulkanEngine
+  PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/vk_lib
+          ${CMAKE_CURRENT_SOURCE_DIR}/third_party   # contains the 'glm' folder
+)
 # If you had a GLSLC path, you can keep it:
 # set(GLSLC_EXE "$ENV{VULKAN_SDK}/Bin/glslc.exe")
