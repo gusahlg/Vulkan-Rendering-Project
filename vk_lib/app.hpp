@@ -22,9 +22,12 @@ namespace ve{
         void createPipeline();
         void createCommandBuffers();
         void drawFrame();
+        void recreateSwapChain();
+        void recordCommandBuffer(int imageIndex);
+
         LveWindow lveWindow{WIDTH, HEIGHT, "VK Rendering Project"};
         LveDevice lveDevice{lveWindow};
-        LveSwapChain lveSwapChain{lveDevice, lveWindow.getExtent()};
+        std::unique_ptr<LveSwapChain> lveSwapChain;
         std::unique_ptr<LvePipeline> lvePipeline;
         VkPipelineLayout pipelineLayout;
         std::vector<VkCommandBuffer> commandBuffers;
