@@ -111,7 +111,7 @@ PipelineConfigInfo LvePipeline::defaultPipelineConfigInfo(PipelineConfigInfo& co
     configInfo.inputAssemblyInfo.topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST;
     configInfo.inputAssemblyInfo.primitiveRestartEnable = VK_FALSE;
 
-    configInfo.viewportInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO;
+    configInfo.viewportInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO;;
     configInfo.viewportInfo.viewportCount = 1;
     configInfo.viewportInfo.pViewports = nullptr;
     configInfo.viewportInfo.scissorCount = 1;

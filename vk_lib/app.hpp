@@ -13,8 +13,8 @@ namespace ve{
         static constexpr int HEIGHT = 720;
         FirstApp();
         ~FirstApp();
-        FirstApp(const LveWindow&) = delete;
-        FirstApp &operator=(const LveWindow&) = delete;
+        FirstApp(const FirstApp&) = delete;
+        FirstApp& operator=(const FirstApp&) = delete;
         void run();
     private:
         void loadModels();

@@ -16,8 +16,8 @@ class LveModel{
         };
         LveModel(LveDevice &device, const std::vector<Vertex> &vertices);
         ~LveModel();
-        LveModel(const LveWindow&) = delete;
-        LveModel &operator=(const LveWindow&) = delete;
+        LveModel(const LveModel&) = delete;
+        LveModel& operator=(const LveModel&) = delete;
         void bind(VkCommandBuffer commandBuffer);
         void draw(VkCommandBuffer commandBuffer);
     private: 

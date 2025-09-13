@@ -1,5 +1,5 @@
 #include "window.hpp"
-#include "stdexcept"
+#include <stdexcept>
 namespace ve{
 
 LveWindow::LveWindow(int w, int h, std::string name) : width{w}, height{h}, windowName{name}{
