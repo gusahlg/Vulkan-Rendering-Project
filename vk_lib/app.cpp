@@ -55,8 +55,23 @@ void FirstApp::recreateSwapChain(){
         glfwWaitEvents();
     }
     vkDeviceWaitIdle(lveDevice.device());
+    // destroy old swapchain first to avoid VK_ERROR_NATIVE_WINDOW_IN_USE_KHR
+    if (lveSwapChain) {
+      lveSwapChain.reset();
+    }
     lveSwapChain = std::make_unique<LveSwapChain>(lveDevice, extent);
     createPipeline();
+
+    // command buffer count can change with the new swapchain -> reallocate
+    if (!commandBuffers.empty()) {
+        vkFreeCommandBuffers(
+            lveDevice.device(),
+            lveDevice.getCommandPool(),
+            static_cast<uint32_t>(commandBuffers.size()),
+            commandBuffers.data());
+        commandBuffers.clear();
+    }
+    createCommandBuffers();
 }
 void FirstApp::createCommandBuffers(){
     commandBuffers.resize(lveSwapChain->imageCount());
@@ -115,6 +130,7 @@ void FirstApp::drawFrame(){
     auto result = lveSwapChain->acquireNextImage(&imageIndex);
     if(result == VK_ERROR_OUT_OF_DATE_KHR){
         recreateSwapChain();
+        return;
     }
     if(result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR){
         throw std::runtime_error("failed to acquire swap chain image");
