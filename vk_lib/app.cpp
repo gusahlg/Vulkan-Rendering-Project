@@ -97,7 +97,7 @@ void FirstApp::createCommandBuffers(){
 }
 void FirstApp::recordCommandBuffer(int imageIndex){
     static int frame = 0;
-    frame = (frame+1) % 1000000;
+    frame = (frame+1) % 10000;
     VkCommandBufferBeginInfo beginInfo{};
         beginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
         if(vkBeginCommandBuffer(commandBuffers[imageIndex], &beginInfo) != VK_SUCCESS){
@@ -131,11 +131,11 @@ void FirstApp::recordCommandBuffer(int imageIndex){
 
         lvePipeline->bind(commandBuffers[imageIndex]);
         lveModel->bind(commandBuffers[imageIndex]);
-        lveModel->draw(commandBuffers[imageIndex]);
+
         for(int j = 0; j < 4; j++){
             SimplePushConstantData push{};
             push.offset = {-0.5f + frame*0.00002f, -0.4f + j * 0.25f};
-            push.color = {0.0f, 0.0f, 0.2f + j * 0.2f};
+            push.color = {0.8f, 0.0f, 0.2f + j * 0.2f};
             vkCmdPushConstants(commandBuffers[imageIndex], pipelineLayout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, 0, sizeof(SimplePushConstantData), &push);
             lveModel->draw(commandBuffers[imageIndex]);
         }
