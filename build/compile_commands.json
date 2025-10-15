@@ -19,6 +19,12 @@
 },
 {
   "directory": "C:/Users/gusta/Desktop/VK_project/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DGLFW_INCLUDE_NONE -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\VulkanEngine.dir\\vk_lib\\simple_render_system.cpp.obj -c C:\\Users\\gusta\\Desktop\\VK_project\\vk_lib\\simple_render_system.cpp",
+  "file": "C:/Users/gusta/Desktop/VK_project/vk_lib/simple_render_system.cpp",
+  "output": "C:/Users/gusta/Desktop/VK_project/build/CMakeFiles/VulkanEngine.dir/vk_lib/simple_render_system.cpp.obj"
+},
+{
+  "directory": "C:/Users/gusta/Desktop/VK_project/build",
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DGLFW_INCLUDE_NONE -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\VulkanEngine.dir\\vk_lib\\ve_model.cpp.obj -c C:\\Users\\gusta\\Desktop\\VK_project\\vk_lib\\ve_model.cpp",
   "file": "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_model.cpp",
   "output": "C:/Users/gusta/Desktop/VK_project/build/CMakeFiles/VulkanEngine.dir/vk_lib/ve_model.cpp.obj"
@@ -28,6 +34,12 @@
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DGLFW_INCLUDE_NONE -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\VulkanEngine.dir\\vk_lib\\ve_pipeline.cpp.obj -c C:\\Users\\gusta\\Desktop\\VK_project\\vk_lib\\ve_pipeline.cpp",
   "file": "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_pipeline.cpp",
   "output": "C:/Users/gusta/Desktop/VK_project/build/CMakeFiles/VulkanEngine.dir/vk_lib/ve_pipeline.cpp.obj"
+},
+{
+  "directory": "C:/Users/gusta/Desktop/VK_project/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DGLFW_INCLUDE_NONE -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\VulkanEngine.dir\\vk_lib\\ve_renderer.cpp.obj -c C:\\Users\\gusta\\Desktop\\VK_project\\vk_lib\\ve_renderer.cpp",
+  "file": "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_renderer.cpp",
+  "output": "C:/Users/gusta/Desktop/VK_project/build/CMakeFiles/VulkanEngine.dir/vk_lib/ve_renderer.cpp.obj"
 },
 {
   "directory": "C:/Users/gusta/Desktop/VK_project/build",
