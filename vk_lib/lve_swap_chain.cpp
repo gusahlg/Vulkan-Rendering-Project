@@ -21,6 +21,18 @@ LveSwapChain::LveSwapChain(LveDevice &deviceRef, VkExtent2D extent)
   createSyncObjects();
 }
 
+LveSwapChain::LveSwapChain(
+    LveDevice &deviceRef, VkExtent2D extent, std::shared_ptr<LveSwapChain> previous)
+    : device{deviceRef}, windowExtent{extent}, oldSwapChain{std::move(previous)} {
+  createSwapChain();
+  createImageViews();
+  createRenderPass();
+  createDepthResources();
+  createFramebuffers();
+  createSyncObjects();
+  oldSwapChain = nullptr;
+}
+
 LveSwapChain::~LveSwapChain() {
   for (auto imageView : swapChainImageViews) {
     vkDestroyImageView(device.device(), imageView, nullptr);

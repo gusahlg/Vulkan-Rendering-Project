@@ -9,34 +9,24 @@ namespace ve{
     LveRenderer::~LveRenderer(){
         freeCommandBuffers();
     }
-void LveRenderer::recreateSwapChain(){
-    // FIX FUNCTION UP SO IT WORKS
+void LveRenderer::recreateSwapChain() {
     auto extent = lveWindow.getExtent();
-    while(extent.width == 0 || extent.height == 0){
+    while (extent.width == 0 || extent.height == 0) {
         extent = lveWindow.getExtent();
         glfwWaitEvents();
     }
     vkDeviceWaitIdle(lveDevice.device());
-    // destroy old swapchain first to avoid VK_ERROR_NATIVE_WINDOW_IN_USE_KHR
-    if (lveSwapChain) {
-      lveSwapChain.reset();
-    }
-    std::shared_ptr<LveSwapChain> oldSwapChain = std::move(lveSwapChain);
-    lveSwapChain = std::make_unique<LveSwapChain>(lveDevice, extent, oldSwapChain);
 
-    if(!oldSwapChain->compareSwapFormats(*lveSwapChain.get())){
-        throw std::runtime_error("Swap chain image (or depth) format has changed");
+    if (lveSwapChain == nullptr) {
+        lveSwapChain = std::make_unique<LveSwapChain>(lveDevice, extent);
+    } else {
+        std::shared_ptr<LveSwapChain> oldSwapChain = std::move(lveSwapChain);
+        lveSwapChain = std::make_unique<LveSwapChain>(lveDevice, extent, oldSwapChain);
+
+        if (!oldSwapChain->compareSwapFormats(*lveSwapChain.get())) {
+            throw std::runtime_error("Swap chain image (or depth) format has changed");
+        }
     }
-    // command buffer count can change with the new swapchain -> reallocate
-    if (!commandBuffers.empty()) {
-        vkFreeCommandBuffers(
-            lveDevice.device(),
-            lveDevice.getCommandPool(),
-            static_cast<uint32_t>(commandBuffers.size()),
-            commandBuffers.data());
-        commandBuffers.clear();
-    }
-    createCommandBuffers();
 }
 void LveRenderer::createCommandBuffers(){
     commandBuffers.resize(LveSwapChain::MAX_FRAMES_IN_FLIGHT);

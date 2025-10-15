@@ -47,3 +47,15 @@
 16	35	7814724451023155	C:/Users/gusta/Desktop/VK_project/build/CMakeFiles/cmake.verify_globs	9d8bffd097e5c0a0
 46	631	7814724451326016	CMakeFiles/VK_project.dir/code_index/main.cpp.obj	702c1c759733d596
 40	796	7814724451260666	CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj	aa0111806cb33871
+50	83	7822485610234865	C:/Users/gusta/Desktop/VK_project/build/CMakeFiles/cmake.verify_globs	9d8bffd097e5c0a0
+13	31	7822490423773024	C:/Users/gusta/Desktop/VK_project/build/CMakeFiles/cmake.verify_globs	9d8bffd097e5c0a0
+36	765	7822490424003601	CMakeFiles/VulkanEngine.dir/vk_lib/ve_renderer.cpp.obj	4ccd8c9f06ccb952
+766	999	7822490431304981	libVulkanEngine.a	68263bf7ffbda88b
+999	1327	7822490433639222	VK_project.exe	24ad61958dfba3b0
+17	35	7822504875518542	C:/Users/gusta/Desktop/VK_project/build/CMakeFiles/cmake.verify_globs	9d8bffd097e5c0a0
+47	630	7822504875821952	CMakeFiles/VulkanEngine.dir/vk_lib/ve_renderer.cpp.obj	4ccd8c9f06ccb952
+51	692	7822504875857138	CMakeFiles/VK_project.dir/code_index/main.cpp.obj	702c1c759733d596
+40	813	7822504875751701	CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj	aa0111806cb33871
+43	1007	7822504875781650	CMakeFiles/VulkanEngine.dir/vk_lib/lve_swap_chain.cpp.obj	ae22cb4232121648
+1007	1105	7822504885417985	libVulkanEngine.a	68263bf7ffbda88b
+1105	1250	7822504886403366	VK_project.exe	24ad61958dfba3b0
