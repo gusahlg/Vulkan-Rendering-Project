@@ -1,9 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"C:/Users/gusta/Desktop/VK_project/build/cmake_install.cmake",
-		"C:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/cmake_install.cmake",
-		"C:/Users/gusta/Desktop/VK_project/build/_deps/glfw-build/src/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
