@@ -5,7 +5,7 @@
       "includePath": [
         "${workspaceFolder}/**",
         "${env:VULKAN_SDK}/Include",
-        "${workspaceFolder}/build/_deps/glfw-src/include"
+        "${workspaceFolder}/build-windows/_deps/glfw-src/include"
       ],
       "defines": [],
       "compilerPath": "C:/msys64/mingw64/bin/g++.exe",
