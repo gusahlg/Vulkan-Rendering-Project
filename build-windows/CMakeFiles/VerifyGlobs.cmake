@@ -8,6 +8,7 @@ set(OLD_GLOB
   "C:/Users/gusta/Desktop/VK_project/vk_lib/lve_device.cpp"
   "C:/Users/gusta/Desktop/VK_project/vk_lib/lve_swap_chain.cpp"
   "C:/Users/gusta/Desktop/VK_project/vk_lib/simple_render_system.cpp"
+  "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_camera.cpp"
   "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_model.cpp"
   "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_pipeline.cpp"
   "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_renderer.cpp"

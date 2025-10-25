@@ -25,6 +25,12 @@
 },
 {
   "directory": "C:/Users/gusta/Desktop/VK_project/build-windows",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DGLFW_INCLUDE_NONE -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build-windows/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include -std=gnu++17 -o CMakeFiles\\VulkanEngine.dir\\vk_lib\\ve_camera.cpp.obj -c C:\\Users\\gusta\\Desktop\\VK_project\\vk_lib\\ve_camera.cpp",
+  "file": "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_camera.cpp",
+  "output": "C:/Users/gusta/Desktop/VK_project/build-windows/CMakeFiles/VulkanEngine.dir/vk_lib/ve_camera.cpp.obj"
+},
+{
+  "directory": "C:/Users/gusta/Desktop/VK_project/build-windows",
   "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DGLFW_INCLUDE_NONE -IC:/Users/gusta/Desktop/VK_project/vk_lib -IC:/Users/gusta/Desktop/VK_project/third_party -IC:/Users/gusta/Desktop/VK_project/build-windows/_deps/glfw-src/include -isystem C:/VulkanSDK/1.4.321.1/include -std=gnu++17 -o CMakeFiles\\VulkanEngine.dir\\vk_lib\\ve_model.cpp.obj -c C:\\Users\\gusta\\Desktop\\VK_project\\vk_lib\\ve_model.cpp",
   "file": "C:/Users/gusta/Desktop/VK_project/vk_lib/ve_model.cpp",
   "output": "C:/Users/gusta/Desktop/VK_project/build-windows/CMakeFiles/VulkanEngine.dir/vk_lib/ve_model.cpp.obj"

@@ -1,5 +1,5 @@
 # ninja log v7
-22	42	7829431050108161	C:/Users/gusta/Desktop/VK_project/build-windows/CMakeFiles/cmake.verify_globs	44eae96a5d07b7a4
+51	83	7831121290539695	C:/Users/gusta/Desktop/VK_project/build-windows/CMakeFiles/cmake.verify_globs	44eae96a5d07b7a4
 88	1270	7829431050749386	_deps/glfw-build/src/CMakeFiles/glfw.dir/null_monitor.c.obj	fc4f7df393c98d0
 57	1289	7829431050451476	_deps/glfw-build/src/CMakeFiles/glfw.dir/platform.c.obj	4099bbdda0d33e02
 78	1328	7829431050663534	_deps/glfw-build/src/CMakeFiles/glfw.dir/osmesa_context.c.obj	b27e32ea22794d59
@@ -33,3 +33,28 @@
 2715	3590	7829431077027029	CMakeFiles/VK_project.dir/code_index/main.cpp.obj	727cdde771bc2021
 3573	3669	7829431085607520	libVulkanEngine.a	68263bf7ffbda88b
 3669	3860	7829431086566733	VK_project.exe	8e6ff5370af64816
+83	1732	7831121306701824	build.ninja	9cc3234562490238
+83	1732	7831121306701824	C:/Users/gusta/Desktop/VK_project/build-windows/cmake_install.cmake	9cc3234562490238
+83	1732	7831121306701824	C:/Users/gusta/Desktop/VK_project/build-windows/_deps/glfw-build/cmake_install.cmake	9cc3234562490238
+83	1732	7831121306701824	C:/Users/gusta/Desktop/VK_project/build-windows/_deps/glfw-build/src/cmake_install.cmake	9cc3234562490238
+18	45	7831121307262463	C:/Users/gusta/Desktop/VK_project/build-windows/CMakeFiles/cmake.verify_globs	44eae96a5d07b7a4
+54	1101	7831121307623692	CMakeFiles/VulkanEngine.dir/vk_lib/simple_render_system.cpp.obj	4bf6f6a5c07f33
+18	37	7831122124924455	C:/Users/gusta/Desktop/VK_project/build-windows/CMakeFiles/cmake.verify_globs	44eae96a5d07b7a4
+51	421	7831122125244691	CMakeFiles/VulkanEngine.dir/vk_lib/ve_camera.cpp.obj	9f2534b26da21e81
+62	744	7831122125364919	CMakeFiles/VK_project.dir/code_index/main.cpp.obj	727cdde771bc2021
+55	771	7831122125279741	CMakeFiles/VulkanEngine.dir/vk_lib/ve_model.cpp.obj	8867c083ca68cc2f
+58	892	7831122125324910	CMakeFiles/VulkanEngine.dir/vk_lib/ve_pipeline.cpp.obj	7814e915de6ceaeb
+46	901	7831122125204638	CMakeFiles/VulkanEngine.dir/vk_lib/simple_render_system.cpp.obj	4bf6f6a5c07f33
+43	977	7831122125171655	CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj	5f8e0431a6dacffe
+977	1235	7831122134513457	libVulkanEngine.a	353e4d26bf02f26c
+1235	1618	7831122137096353	VK_project.exe	8e6ff5370af64816
+22	40	7831126170608965	C:/Users/gusta/Desktop/VK_project/build-windows/CMakeFiles/cmake.verify_globs	44eae96a5d07b7a4
+48	653	7831126170858530	CMakeFiles/VulkanEngine.dir/vk_lib/ve_renderer.cpp.obj	a1b448b34487f7dc
+52	658	7831126170908401	CMakeFiles/VK_project.dir/code_index/main.cpp.obj	727cdde771bc2021
+45	878	7831126170838443	CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj	5f8e0431a6dacffe
+879	976	7831126179174311	libVulkanEngine.a	353e4d26bf02f26c
+976	1151	7831126180146611	VK_project.exe	8e6ff5370af64816
+18	37	7831128155358650	C:/Users/gusta/Desktop/VK_project/build-windows/CMakeFiles/cmake.verify_globs	44eae96a5d07b7a4
+42	780	7831128155584399	CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.obj	5f8e0431a6dacffe
+780	875	7831128162974196	libVulkanEngine.a	353e4d26bf02f26c
+875	1045	7831128163918616	VK_project.exe	8e6ff5370af64816
