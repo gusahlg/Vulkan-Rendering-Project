@@ -15,7 +15,7 @@
 namespace ve {
 FirstApp::FirstApp() { loadGameObjects(); }
 FirstApp::~FirstApp() {}
-void FirstApp::run() {
+void FirstApp::run(){
   SimpleRenderSystem simpleRenderSystem{lveDevice,
                                         lveRenderer.getSwapChainRenderPass()};
   LveCamera camera{};
@@ -26,13 +26,10 @@ void FirstApp::run() {
   while (!lveWindow.shouldClose()) {
     glfwPollEvents();
     auto newTime = std::chrono::high_resolution_clock::now();
-    float frameTime = std::chrono::duration<float>,
-          std::chrono::seconds::period(newTime - currentTime).count();
+    float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
     currentTime = newTime;
-    cameraController.moveInPlaneXZ(lveWindow.getGLFWwindow(), frameTime,
-                                   viewerObject);
-    camera.setViewXYZ(viewerObject.transform.translation,
-                      viewerObject.transform.rotation);
+    cameraController.moveInPlaneXZ(lveWindow.getGLFWwindow(), frameTime, viewerObject);
+    camera.setViewYXZ(viewerObject.transform.translation, viewerObject.transform.rotation);
 
     float aspect = lveRenderer.getAspectRatio();
     // camera.setOrthographicProjection(-aspect, aspect, -1, 1, -1, 1);

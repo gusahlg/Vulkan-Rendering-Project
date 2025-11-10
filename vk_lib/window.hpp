@@ -1,9 +1,9 @@
 #pragma once
-#include <GLFW/glfw3.h>
 #include <iostream>
 #include <string>
 #include <vector>
 #include <vulkan/vulkan.h>
+#include <GLFW/glfw3.h>
 namespace ve {
 class LveWindow {
 public:
