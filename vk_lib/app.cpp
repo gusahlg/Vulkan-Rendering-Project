@@ -1,5 +1,5 @@
 #include "app.hpp"
-#include "engine_core/keyboard_movement_controller.hpp"
+#include "keyboard_movement_controller.hpp"
 #include "lve_game_object.hpp"
 #include "simple_render_system.hpp"
 #include "ve_camera.hpp"
@@ -26,7 +26,8 @@ void FirstApp::run(){
   while (!lveWindow.shouldClose()) {
     glfwPollEvents();
     auto newTime = std::chrono::high_resolution_clock::now();
-    float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
+    float frameTime =
+        std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
     currentTime = newTime;
     cameraController.moveInPlaneXZ(lveWindow.getGLFWwindow(), frameTime, viewerObject);
     camera.setViewYXZ(viewerObject.transform.translation, viewerObject.transform.rotation);
@@ -110,4 +111,3 @@ void FirstApp::loadGameObjects() {
   gameObjects.push_back(std::move(cube));
 }
 } // namespace ve
-// Comment written in Neovim, YAY

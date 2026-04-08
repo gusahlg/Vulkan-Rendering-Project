@@ -7,6 +7,10 @@
 #include <glm/gtc/constants.hpp>
 namespace ve {
 
+#ifndef VE_SHADER_DIR
+#define VE_SHADER_DIR "shaders"
+#endif
+
 struct SimplePushConstantData {
   glm::mat4 transform{1.f};
   alignas(16) glm::vec3 color;
@@ -45,8 +49,8 @@ void SimpleRenderSystem::createPipeline(VkRenderPass renderPass) {
   pipelineConfig.renderPass = renderPass;
   pipelineConfig.pipelineLayout = pipelineLayout;
   lvePipeline = std::make_unique<LvePipeline>(
-      lveDevice, "shaders/simple_shader.vert.spv",
-      "shaders/simple_shader.frag.spv", pipelineConfig);
+      lveDevice, std::string{VE_SHADER_DIR} + "/simple_shader.vert.spv",
+      std::string{VE_SHADER_DIR} + "/simple_shader.frag.spv", pipelineConfig);
 }
 void SimpleRenderSystem::renderGameObjects(
     VkCommandBuffer commandBuffer, std::vector<LveGameObject> &gameObjects,

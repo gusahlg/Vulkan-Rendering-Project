@@ -1,0 +1,5 @@
+/home/gusahlg/repos/Vulkan-Rendering-Project/build/CMakeFiles/Shaders.dir
+/home/gusahlg/repos/Vulkan-Rendering-Project/build/CMakeFiles/VulkanEngine.dir
+/home/gusahlg/repos/Vulkan-Rendering-Project/build/CMakeFiles/VK_project.dir
+/home/gusahlg/repos/Vulkan-Rendering-Project/build/CMakeFiles/edit_cache.dir
+/home/gusahlg/repos/Vulkan-Rendering-Project/build/CMakeFiles/rebuild_cache.dir

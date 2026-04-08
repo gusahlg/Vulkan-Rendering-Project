@@ -25,10 +25,12 @@ struct QueueFamilyIndices {
 class LveDevice {
  public:
 #ifdef NDEBUG
-  const bool enableValidationLayers = false;
+  static constexpr bool kEnableValidationLayers = false;
 #else
-  const bool enableValidationLayers = true;
+  static constexpr bool kEnableValidationLayers = true;
 #endif
+
+  bool enableValidationLayers = kEnableValidationLayers;
 
   LveDevice(LveWindow &window);
   ~LveDevice();
@@ -105,4 +107,4 @@ class LveDevice {
   const std::vector<const char *> deviceExtensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
 };
 
-}  // namespace lve
+}  // namespace ve

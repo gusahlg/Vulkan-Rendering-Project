@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/home/gusahlg/repos/Vulkan-Rendering-Project/build",
+  "command": "/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -DVE_SHADER_DIR=\\\"/home/gusahlg/repos/Vulkan-Rendering-Project/build/shaders\\\" -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/engine_core -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/rendering -I/home/gusahlg/repos/Vulkan-Rendering-Project/third_party -std=gnu++17 -o CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.o -c /home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/app.cpp",
+  "file": "/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/app.cpp",
+  "output": "CMakeFiles/VulkanEngine.dir/vk_lib/app.cpp.o"
+},
+{
+  "directory": "/home/gusahlg/repos/Vulkan-Rendering-Project/build",
+  "command": "/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -DVE_SHADER_DIR=\\\"/home/gusahlg/repos/Vulkan-Rendering-Project/build/shaders\\\" -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/engine_core -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/rendering -I/home/gusahlg/repos/Vulkan-Rendering-Project/third_party -std=gnu++17 -o CMakeFiles/VulkanEngine.dir/vk_lib/lve_device.cpp.o -c /home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/lve_device.cpp",
+  "file": "/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/lve_device.cpp",
+  "output": "CMakeFiles/VulkanEngine.dir/vk_lib/lve_device.cpp.o"
+},
+{
+  "directory": "/home/gusahlg/repos/Vulkan-Rendering-Project/build",
+  "command": "/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -DVE_SHADER_DIR=\\\"/home/gusahlg/repos/Vulkan-Rendering-Project/build/shaders\\\" -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/engine_core -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/rendering -I/home/gusahlg/repos/Vulkan-Rendering-Project/third_party -std=gnu++17 -o CMakeFiles/VulkanEngine.dir/vk_lib/lve_swap_chain.cpp.o -c /home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/lve_swap_chain.cpp",
+  "file": "/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/lve_swap_chain.cpp",
+  "output": "CMakeFiles/VulkanEngine.dir/vk_lib/lve_swap_chain.cpp.o"
+},
+{
+  "directory": "/home/gusahlg/repos/Vulkan-Rendering-Project/build",
+  "command": "/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -DVE_SHADER_DIR=\\\"/home/gusahlg/repos/Vulkan-Rendering-Project/build/shaders\\\" -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/engine_core -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/rendering -I/home/gusahlg/repos/Vulkan-Rendering-Project/third_party -std=gnu++17 -o CMakeFiles/VulkanEngine.dir/vk_lib/simple_render_system.cpp.o -c /home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/simple_render_system.cpp",
+  "file": "/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/simple_render_system.cpp",
+  "output": "CMakeFiles/VulkanEngine.dir/vk_lib/simple_render_system.cpp.o"
+},
+{
+  "directory": "/home/gusahlg/repos/Vulkan-Rendering-Project/build",
+  "command": "/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -DVE_SHADER_DIR=\\\"/home/gusahlg/repos/Vulkan-Rendering-Project/build/shaders\\\" -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/engine_core -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/rendering -I/home/gusahlg/repos/Vulkan-Rendering-Project/third_party -std=gnu++17 -o CMakeFiles/VulkanEngine.dir/vk_lib/ve_camera.cpp.o -c /home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/ve_camera.cpp",
+  "file": "/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/ve_camera.cpp",
+  "output": "CMakeFiles/VulkanEngine.dir/vk_lib/ve_camera.cpp.o"
+},
+{
+  "directory": "/home/gusahlg/repos/Vulkan-Rendering-Project/build",
+  "command": "/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -DVE_SHADER_DIR=\\\"/home/gusahlg/repos/Vulkan-Rendering-Project/build/shaders\\\" -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/engine_core -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/rendering -I/home/gusahlg/repos/Vulkan-Rendering-Project/third_party -std=gnu++17 -o CMakeFiles/VulkanEngine.dir/vk_lib/ve_model.cpp.o -c /home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/ve_model.cpp",
+  "file": "/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/ve_model.cpp",
+  "output": "CMakeFiles/VulkanEngine.dir/vk_lib/ve_model.cpp.o"
+},
+{
+  "directory": "/home/gusahlg/repos/Vulkan-Rendering-Project/build",
+  "command": "/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -DVE_SHADER_DIR=\\\"/home/gusahlg/repos/Vulkan-Rendering-Project/build/shaders\\\" -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/engine_core -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/rendering -I/home/gusahlg/repos/Vulkan-Rendering-Project/third_party -std=gnu++17 -o CMakeFiles/VulkanEngine.dir/vk_lib/ve_pipeline.cpp.o -c /home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/ve_pipeline.cpp",
+  "file": "/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/ve_pipeline.cpp",
+  "output": "CMakeFiles/VulkanEngine.dir/vk_lib/ve_pipeline.cpp.o"
+},
+{
+  "directory": "/home/gusahlg/repos/Vulkan-Rendering-Project/build",
+  "command": "/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -DVE_SHADER_DIR=\\\"/home/gusahlg/repos/Vulkan-Rendering-Project/build/shaders\\\" -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/engine_core -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/rendering -I/home/gusahlg/repos/Vulkan-Rendering-Project/third_party -std=gnu++17 -o CMakeFiles/VulkanEngine.dir/vk_lib/ve_renderer.cpp.o -c /home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/ve_renderer.cpp",
+  "file": "/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/ve_renderer.cpp",
+  "output": "CMakeFiles/VulkanEngine.dir/vk_lib/ve_renderer.cpp.o"
+},
+{
+  "directory": "/home/gusahlg/repos/Vulkan-Rendering-Project/build",
+  "command": "/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -DVE_SHADER_DIR=\\\"/home/gusahlg/repos/Vulkan-Rendering-Project/build/shaders\\\" -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/engine_core -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/rendering -I/home/gusahlg/repos/Vulkan-Rendering-Project/third_party -std=gnu++17 -o CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.o -c /home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/ve_window.cpp",
+  "file": "/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/ve_window.cpp",
+  "output": "CMakeFiles/VulkanEngine.dir/vk_lib/ve_window.cpp.o"
+},
+{
+  "directory": "/home/gusahlg/repos/Vulkan-Rendering-Project/build",
+  "command": "/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -DVE_SHADER_DIR=\\\"/home/gusahlg/repos/Vulkan-Rendering-Project/build/shaders\\\" -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/engine_core -I/home/gusahlg/repos/Vulkan-Rendering-Project/vk_lib/rendering -I/home/gusahlg/repos/Vulkan-Rendering-Project/third_party -std=gnu++17 -o CMakeFiles/VK_project.dir/code_index/main.cpp.o -c /home/gusahlg/repos/Vulkan-Rendering-Project/code_index/main.cpp",
+  "file": "/home/gusahlg/repos/Vulkan-Rendering-Project/code_index/main.cpp",
+  "output": "CMakeFiles/VK_project.dir/code_index/main.cpp.o"
+}
+]

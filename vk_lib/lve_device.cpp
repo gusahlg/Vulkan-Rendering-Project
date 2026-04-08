@@ -70,7 +70,9 @@ LveDevice::~LveDevice() {
 
 void LveDevice::createInstance() {
   if (enableValidationLayers && !checkValidationLayerSupport()) {
-    throw std::runtime_error("validation layers requested, but not available!");
+    std::cerr << "validation layers requested, but not available; continuing without them"
+              << std::endl;
+    enableValidationLayers = false;
   }
 
   VkApplicationInfo appInfo = {};

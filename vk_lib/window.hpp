@@ -2,7 +2,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <vulkan/vulkan.h>
+#if defined(__linux__)
+#define VK_USE_PLATFORM_WAYLAND_KHR
+#endif
+#define GLFW_INCLUDE_VULKAN
+#define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 namespace ve {
 class LveWindow {

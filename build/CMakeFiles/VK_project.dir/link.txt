@@ -1,0 +1,1 @@
+/nix/store/hb2bs5fg5wkm04x565737qd5nh2hy5nk-gcc-wrapper-15.2.0/bin/g++ -Wl,--dependency-file=CMakeFiles/VK_project.dir/link.d CMakeFiles/VK_project.dir/code_index/main.cpp.o -o VK_project  libVulkanEngine.a /nix/store/7krvb015vp4wq7lj6v3wadjy4q9asc8q-vulkan-loader-1.4.341.0/lib/libvulkan.so /nix/store/a4f2nkikh30hflw5g8wrhz6rmjh26r5f-glfw-3.4/lib/libglfw.so.3.4

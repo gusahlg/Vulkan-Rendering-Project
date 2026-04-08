@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/gusahlg/repos/Vulkan-Rendering-Project/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
